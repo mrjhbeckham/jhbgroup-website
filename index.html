@@ -397,9 +397,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
 .legal-card p+p{margin-top:.9rem}
 .legal-x{position:absolute;top:1.1rem;right:1.1rem;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 .legal-x:hover{color:var(--ink)}
-.portal-form{margin-top:1.8rem}
-.portal-form .fld{margin-bottom:1.5rem}
-.portal-form .btn{margin-top:.4rem}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
@@ -771,7 +768,7 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
         <ul class="ft-links">
           <li><button type="button" data-legal="privacy">Privacy</button></li>
           <li><button type="button" data-legal="terms">Terms</button></li>
-          <li><button type="button" data-legal="portal">Portal</button></li>
+          <li><button type="button" id="signOutBtn">Sign Out</button></li>
         </ul>
       </div>
     </div>
@@ -797,24 +794,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
     <h3 id="lt-h">Terms of use</h3>
     <p>The content of this website is provided for general information about JHB Group only. It does not constitute financial, investment or legal advice, and nothing on this site is an offer of financial products or services.</p>
     <p>All content and branding are the property of JHB Group and may not be reproduced without permission.</p>
-  </div>
-</div>
-<div class="legal" id="legal-portal" role="dialog" aria-modal="true" aria-labelledby="lg-h" aria-hidden="true">
-  <div class="legal-card">
-    <button class="legal-x" type="button" data-close>Close</button>
-    <h3 id="lg-h">Staff Portal</h3>
-    <p>Reserved for JHB Group staff.</p>
-    <div class="form portal-form">
-      <div class="fld">
-        <label for="pf-email">Email</label>
-        <input type="email" id="pf-email" autocomplete="off">
-      </div>
-      <div class="fld">
-        <label for="pf-pass">Password</label>
-        <input type="password" id="pf-pass" autocomplete="off">
-      </div>
-      <button class="btn" type="button">Log In</button>
-    </div>
   </div>
 </div>
 <div class="legal legal-wide" id="legal-story-streetwise" role="dialog" aria-modal="true" aria-labelledby="ls1-h" aria-hidden="true">
@@ -968,6 +947,17 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
   document.querySelectorAll("[data-legal]").forEach(function(b){
     b.addEventListener("click", function(){ openLegal(b.getAttribute("data-legal")); });
   });
+  var signOutBtn = document.getElementById("signOutBtn");
+  if(signOutBtn){
+    signOutBtn.addEventListener("click", function(){
+      document.documentElement.classList.remove("unlocked");
+      try{ localStorage.removeItem("jhb_unlocked"); }catch(e){}
+      var gateInput = document.getElementById("gateInput");
+      var gateErr = document.getElementById("gateErr");
+      if(gateInput) gateInput.value = "";
+      if(gateErr){ gateErr.textContent = ""; gateErr.classList.remove("show"); }
+    });
+  }
   document.querySelectorAll(".legal").forEach(function(el){
     el.addEventListener("click", function(ev){ if(ev.target === el) closeLegal(el); });
     el.querySelector("[data-close]").addEventListener("click", function(){ closeLegal(el); });
