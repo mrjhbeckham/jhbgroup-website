@@ -435,7 +435,7 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
       </svg>
       <span class="b1">JHB</span><span class="b2">GROUP</span>
     </a>
-    <p class="gate-lbl">Private. Enter code to continue</p>
+    <p class="gate-lbl">Enter the code to proceed</p>
     <form class="gate-form" id="gateForm" autocomplete="off">
       <input class="gate-input" id="gateInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="5" placeholder="•••••" aria-label="Access code" autofocus>
       <button class="gate-btn" type="submit">Enter</button>
@@ -445,7 +445,7 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
 </div>
 <script>
 (function(){
-  var HASH = "a13fc976d339817de7d6c4c12b4d838bafab45e127eac53172198f8b4ba89238";
+  var CODE = "01009";
   var KEY = "jhb_unlocked";
   var root = document.documentElement;
   var gate = document.getElementById("gate");
@@ -467,24 +467,16 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
       ev.preventDefault();
       var val = (input.value || "").trim();
       if(!val) return;
-      if(!(window.crypto && window.crypto.subtle)){
-        err.textContent = "This browser can't verify the code. Try a different browser.";
+      if(val === CODE){
+        unlock();
+      }else{
+        err.textContent = "Incorrect code. Try again.";
         err.classList.add("show");
-        return;
+        gate.classList.add("shake");
+        input.value = "";
+        input.focus();
+        setTimeout(function(){ gate.classList.remove("shake"); }, 400);
       }
-      window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(val)).then(function(buf){
-        var hex = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("");
-        if(hex === HASH){
-          unlock();
-        }else{
-          err.textContent = "Incorrect code. Try again.";
-          err.classList.add("show");
-          gate.classList.add("shake");
-          input.value = "";
-          input.focus();
-          setTimeout(function(){ gate.classList.remove("shake"); }, 400);
-        }
-      });
     });
   }
 })();
