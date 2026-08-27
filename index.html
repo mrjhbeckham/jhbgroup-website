@@ -282,46 +282,6 @@ html.unlocked .gate{display:none}
 .crit .h2{margin-bottom:1.2rem}
 .crit .lead{margin-bottom:2.6rem}
 
-/* ---------- stories ---------- */
-.stories{background:var(--d-bg);color:var(--d-ink);padding-block:var(--sect);overflow:hidden}
-.stories-head{max-width:40rem;margin-bottom:clamp(3rem,7vh,5rem)}
-.stories-head .lead{margin-top:1.1rem}
-.story-carousel{position:relative}
-.story-track{
-  display:flex;gap:clamp(1.5rem,3vw,2.5rem);overflow-x:auto;scroll-snap-type:x mandatory;
-  scrollbar-width:none;-ms-overflow-style:none;padding-bottom:.4rem;margin:0 -.2rem;
-}
-.story-track::-webkit-scrollbar{display:none}
-.story-card{flex:0 0 min(30rem,86%);scroll-snap-align:start;padding:0 .2rem}
-.story-media{
-  position:relative;display:block;aspect-ratio:16/10;overflow:hidden;
-  border:1px solid var(--d-line);
-  background-image:repeating-linear-gradient(45deg,rgba(156,134,96,.07) 0 2px,transparent 2px 15px),
-    linear-gradient(135deg,var(--d-bg-2),var(--d-bg));
-}
-.story-card:nth-child(2) .story-media{background-image:repeating-linear-gradient(45deg,rgba(156,134,96,.07) 0 2px,transparent 2px 15px),linear-gradient(135deg,var(--d-bg),var(--d-bg-2))}
-.story-card:nth-child(3) .story-media{background-image:repeating-linear-gradient(-45deg,rgba(156,134,96,.07) 0 2px,transparent 2px 15px),linear-gradient(135deg,var(--d-bg-2),var(--d-bg))}
-.story-cta{
-  position:absolute;right:1.1rem;bottom:1.1rem;display:inline-flex;align-items:center;gap:.7rem;
-  background:var(--paper);color:var(--ink);border:0;
-  font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
-  padding:.8rem 1.3rem;cursor:pointer;transition:gap .35s var(--ease);
-}
-.story-cta i{font-style:normal}
-.story-media:hover .story-cta{gap:1rem}
-.story-body{padding-top:1.6rem;max-width:34rem}
-.story-tag{font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze);margin-bottom:.7rem}
-.story-text{color:var(--d-mut);font-size:.98rem;line-height:1.75}
-.story-nav{display:flex;gap:.8rem;margin-top:2rem}
-.story-arrow{
-  width:2.7rem;height:2.7rem;border:1px solid var(--d-line);display:flex;align-items:center;justify-content:center;
-  color:var(--d-ink);transition:background .3s,border-color .3s;
-}
-.story-arrow:hover{background:var(--d-bg-2);border-color:var(--bronze)}
-.legal-wide .legal-card{max-width:42rem}
-.legal-card .story-link{display:inline-block;margin-top:1.6rem;font-size:.85rem;color:var(--mut);border-bottom:1px solid var(--line);padding-bottom:.15rem;transition:color .3s,border-color .3s}
-.legal-card .story-link:hover{color:var(--ink);border-color:var(--ink)}
-
 /* ---------- philosophy ---------- */
 .phil{padding-block:clamp(8rem,20vh,14rem);background:var(--paper)}
 .phil blockquote{
@@ -579,7 +539,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
     <p class="kick rv"><i>03</i> Focus</p>
     <div class="vent-head">
       <h2 class="h2 rv">Four areas the firm commits capital to.</h2>
-      <p class="lead rv d1">Like most private investors, JHB Group doesn't publish a running list of what it holds. What follows is the shape of where the capital goes, not an inventory of it.</p>
     </div>
     <div class="vent-grid rv d1">
       <div class="vent-cell">
@@ -631,52 +590,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
   </div>
 </section>
 
-<!-- ================= STORIES ================= -->
-<section class="stories dark" id="stories">
-  <div class="wrap">
-    <p class="kick rv"><i>05</i> Stories</p>
-    <div class="stories-head">
-      <h2 class="h2 rv">Stories worth telling.</h2>
-      <p class="lead rv d1">Not every result fits neatly into a balance sheet. Some of the work we're proudest of reads better as a story than a spreadsheet.</p>
-    </div>
-    <div class="story-carousel rv d1">
-      <div class="story-track" id="storyTrack">
-        <article class="story-card">
-          <button class="story-media" type="button" data-legal="story-streetwise" aria-haspopup="dialog">
-            <span class="story-cta">Read story <i>→</i></span>
-          </button>
-          <div class="story-body">
-            <p class="story-tag">Community Safety</p>
-            <p class="story-text">How a simple idea to keep neighbourhoods informed grew into a crowdsourced safety network used across New Zealand.</p>
-          </div>
-        </article>
-        <article class="story-card">
-          <button class="story-media" type="button" data-legal="story-pickem" aria-haspopup="dialog">
-            <span class="story-cta">Read story <i>→</i></span>
-          </button>
-          <div class="story-body">
-            <p class="story-tag">Sports Analytics</p>
-            <p class="story-text">Backing a small team turning raw sports data into predictions people actually trust.</p>
-          </div>
-        </article>
-        <article class="story-card">
-          <button class="story-media" type="button" data-legal="story-rcm" aria-haspopup="dialog">
-            <span class="story-cta">Read story <i>→</i></span>
-          </button>
-          <div class="story-body">
-            <p class="story-tag">Gaming</p>
-            <p class="story-text">Helping a gaming studio bring a rugby club management game to life on Roblox, code, animation and all.</p>
-          </div>
-        </article>
-      </div>
-      <div class="story-nav">
-        <button type="button" class="story-arrow" data-dir="-1" aria-label="Previous story">←</button>
-        <button type="button" class="story-arrow" data-dir="1" aria-label="Next story">→</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= PHILOSOPHY ================= -->
 <section class="phil">
   <div class="wrap">
@@ -688,7 +601,7 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
 <!-- ================= OWNERSHIP ================= -->
 <section class="own dark">
   <div class="wrap">
-    <p class="kick rv"><i>06</i> Ownership</p>
+    <p class="kick rv"><i>05</i> Ownership</p>
     <div class="own-grid">
       <h2 class="h2 rv">Privately held.<br>Independently minded.</h2>
       <p class="lead rv d1">JHB Group is privately owned and answers only to its own long-term judgment. That independence allows for a long view, the freedom to choose its own opportunities, and a focus on outcomes measured over years rather than quarters.</p>
@@ -699,7 +612,7 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <p class="kick rv"><i>07</i> Contact</p>
+    <p class="kick rv"><i>06</i> Contact</p>
     <div class="ct-grid">
       <div>
         <h2 class="h2 rv">Start a conversation.</h2>
@@ -794,34 +707,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
     <h3 id="lt-h">Terms of use</h3>
     <p>The content of this website is provided for general information about JHB Group only. It does not constitute financial, investment or legal advice, and nothing on this site is an offer of financial products or services.</p>
     <p>All content and branding are the property of JHB Group and may not be reproduced without permission.</p>
-  </div>
-</div>
-<div class="legal legal-wide" id="legal-story-streetwise" role="dialog" aria-modal="true" aria-labelledby="ls1-h" aria-hidden="true">
-  <div class="legal-card">
-    <button class="legal-x" type="button" data-close>Close</button>
-    <h3 id="ls1-h">Streetwise</h3>
-    <p>It started with a problem everyone in the room recognised: most people only find out about trouble on their own street from a neighbour's message, days after it happened. The team behind Streetwise had already built a rough version of something better, a way for residents to report and see local incidents in real time, but they needed the capital and the runway to take it from a side project to something communities could actually rely on.</p>
-    <p>We backed it early and stayed close to the people building it rather than writing a cheque and stepping back. That meant regular conversations about what safety actually looks like for a street, a suburb, a whole town, and a fair amount of patience while the product found its shape.</p>
-    <p>Streetwise is now a crowdsourced safety network New Zealanders use to report and track what's happening around them, turning scattered word of mouth into something a whole community can act on. It is exactly the kind of quiet, useful thing we like backing: not flashy, just genuinely needed.</p>
-    <a class="story-link" href="https://streetwise.org.nz" target="_blank" rel="noopener">Visit streetwise.org.nz →</a>
-  </div>
-</div>
-<div class="legal legal-wide" id="legal-story-pickem" role="dialog" aria-modal="true" aria-labelledby="ls2-h" aria-hidden="true">
-  <div class="legal-card">
-    <button class="legal-x" type="button" data-close>Close</button>
-    <h3 id="ls2-h">Pickem</h3>
-    <p>Sports fans have never had more stats available to them, and rarely have they had less idea what to do with all of it. The founders behind Pickem set out to fix that: take the numbers seriously, build models that hold up under real pressure, and put genuinely useful predictions in front of people who love the game rather than burying them in a spreadsheet.</p>
-    <p>We came in early, brought some capital and a fair amount of patience, and worked alongside the team through the unglamorous part of building anything in analytics: getting the data pipeline right long before anyone sees a polished screen.</p>
-    <p>What's grown out of that is Pickem, a sports analytics product built by people who genuinely love the sport as much as the maths behind it. It's the kind of investment that plays to what we look for: real expertise, a defensible idea, and founders we'd happily back again in a completely different business.</p>
-  </div>
-</div>
-<div class="legal legal-wide" id="legal-story-rcm" role="dialog" aria-modal="true" aria-labelledby="ls3-h" aria-hidden="true">
-  <div class="legal-card">
-    <button class="legal-x" type="button" data-close>Close</button>
-    <h3 id="ls3-h">Rugby Club Manager</h3>
-    <p>Roblox has quietly become one of the biggest gaming platforms in the world, and most of what gets built on it never gets the credit it deserves for the craft involved: real coding, real animation, real design decisions, wrapped in a format a lot of people underestimate.</p>
-    <p>The studio behind Rugby Club Manager wanted to build something with more depth than a typical Roblox title: a genuine club management game for rugby fans, with the UI, the animation and the underlying systems to match. We backed the studio's ambition and the team's ability to execute on it, supporting the work across coding, animation and the AI systems that make the game feel alive rather than scripted.</p>
-    <p>It has been one of the more fun ventures to be part of, a reminder that serious engineering and genuine craft show up in places people don't always expect, including inside a Roblox client.</p>
   </div>
 </div>
 </div><!-- /#siteContent -->
@@ -968,29 +853,6 @@ footer{background:var(--d-bg);color:var(--d-ink);padding-top:var(--sect);font-si
       if(burger.getAttribute("aria-expanded") === "true") setMenu(false);
     }
   });
-
-  /* ---------- story carousel ---------- */
-  var storyTrack = document.getElementById("storyTrack");
-  if(storyTrack){
-    function storyStep(){
-      var card = storyTrack.querySelector(".story-card");
-      if(!card) return 0;
-      var gap = parseFloat(getComputedStyle(storyTrack).columnGap || 0) || 0;
-      return card.getBoundingClientRect().width + gap;
-    }
-    document.querySelectorAll(".story-arrow").forEach(function(btn){
-      btn.addEventListener("click", function(){
-        storyTrack.scrollBy({ left: Number(btn.getAttribute("data-dir")) * storyStep(), behavior: reduced ? "auto" : "smooth" });
-      });
-    });
-    function storyNavToggle(){
-      var nav = document.querySelector(".story-nav");
-      if(!nav) return;
-      nav.style.display = storyTrack.scrollWidth > storyTrack.clientWidth + 4 ? "flex" : "none";
-    }
-    storyNavToggle();
-    window.addEventListener("resize", storyNavToggle);
-  }
 })();
 </script>
 </body>
